@@ -1,16 +1,11 @@
 /* src/App.css */
 body {
   font-family: 'Josefin Sans', sans-serif; /* Add a stylish Google Font */
-  background-color: #f9fafb;
+  background-color: #adc5dd;
   color: #333;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: center;
-}
+
 
 h1 {
   font-size: 2.5em;
@@ -42,7 +37,7 @@ h1 {
 }
 
 .auto-part img {
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 5px;
 }

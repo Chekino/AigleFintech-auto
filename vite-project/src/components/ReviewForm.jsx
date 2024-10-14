@@ -1,16 +1,19 @@
 // src/components/ReviewForm.js
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const ReviewForm = ({ partId, onSubmitReview }) => {
   const [review, setReview] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (review.trim() !== "") {
-      // Appeler la fonction parent pour soumettre l'avis
+    if (review.trim().length < 10) {
+      setError("L'avis doit contenir au moins 10 caractères.");
+    } else {
       onSubmitReview(partId, review);
-      setReview(""); // Réinitialiser le champ après soumission
+      setReview("");
+      setError("");
     }
   };
 
@@ -26,6 +29,7 @@ const ReviewForm = ({ partId, onSubmitReview }) => {
           placeholder="Écrivez votre avis ici..."
         />
       </Form.Group>
+      {error && <p className="text-danger">{error}</p>}
       <Button variant="primary" type="submit">
         Soumettre l'avis
       </Button>
